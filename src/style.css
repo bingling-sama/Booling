@@ -1,63 +1,61 @@
-html {
-	width: 98%;
-	height: 98%;
-}
-
 body {
-	display: flex;
-	place-items: center;
-	min-width: 100%;
-	min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+
+      margin: 0;
+      padding: 0;
 }
 
 .card {
-	width: 30rem;
-	margin: auto;
+      width: 30rem;
 }
 
 .details {
-	padding: 0.5rem 1.3rem 0.5rem 1.3rem;
+      padding: 0.5rem 1.3rem 0.5rem 1.3rem;
 }
 
 .content {
-	padding: 0.5rem 0.5rem 0.5rem 0.5rem !important;
+      padding: 0.5rem 0.5rem 0.5rem 0.5rem !important;
 }
 
 .profile {
-	display: flex;
+      display: flex;
 }
 
 .avatar {
-	align-items: center;
-	display: flex;
-	justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-	height: 8rem;
-	width: 8rem;
+      height: 8rem;
+      width: 8rem;
 }
 
 .avatar__image {
-	height: 80%;
-	width: 80%;
+      height: 80%;
+      width: 80%;
 }
 
 .intro {
-	flex: 1;
+      flex: 1;
 }
 
 .name {
-	margin: 0.7rem 0 0.3rem 0;
+      margin: 0.7rem 0 0.3rem 0;
 }
 
 .text {
-	font-size: medium;
+      font-size: medium;
 }
 
 .self-intro {
-	padding: 0 0 0 0.5rem;
+      padding: 0 0 0 0.5rem;
 }
 
 .about {
-	padding: 0 0 1rem 0;
-	text-align: center;
+      padding: 0 0 1rem 0;
+      text-align: center;
 }
