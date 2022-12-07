@@ -1,0 +1,7 @@
+{
+  "framework": "vite",
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/blog", "destination": "https://blog.booling.cn/" }
+  ]
+}
