@@ -6,6 +6,8 @@
       <a href="https://cn.vitejs.dev"> Vite</a> &
       <a href="https://github.com/sakofchit/system.css"> System.css</a>, deployed on
       <a href="https://vercel.com"> Vercel</a>.
+      <br> You can find the source code of this page on
+      <a href="https://github.com/bingling-sama/Booling/">GitHub</a>.
     </span><br>
     <span class="dialog-text">Love from China❤️</span>
     <h5 class="dialog-text">&copy; 2020 bingling_sama</h5>
@@ -20,6 +22,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
