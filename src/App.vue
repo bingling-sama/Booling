@@ -1,5 +1,5 @@
 <template>
-  <div class="window card">
+  <div class="window">
     <div class="title-bar">
       <h1 class="title">Booling✨</h1>
     </div>
@@ -22,6 +22,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

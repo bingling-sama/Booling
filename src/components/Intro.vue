@@ -8,7 +8,7 @@
       <div class="intro">
         <h1 class="name">bingling_sama</h1>
         <span class="text">A high school student from China. Living in Wuhan, Hubei
-          Province.</span><br />
+          Province.</span>
         <span class="text">Email:
           <a href="mailto:bingling_sama@qq.com">bingling_sama@qq.com</a></span>
       </div>
@@ -38,6 +38,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
