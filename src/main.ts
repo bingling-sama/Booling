@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import '@sakun/system.css'
 import './style.css'
+import '@sakun/system.css'
 import App from './App.vue'
 
 import Intro from './components/Intro.vue'
