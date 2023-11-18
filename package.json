@@ -4,7 +4,7 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"install": "git fetch && git submodule update",
+		"install": "powershell ./scripts/install.ps1",
 		"dev": "vite --open",
 		"build": "vue-tsc && vite build",
 		"preview": "vite preview"
@@ -14,11 +14,10 @@
 		"./packages"
 	],
 	"dependencies": {
-		"vercel": "^32.5.0",
+		"@booling/system.css": "workspace:^",
 		"vite-plugin-compression": "^0.5.1",
 		"vue": "^3.2.41",
-		"vue-router": "^4.1.6",
-		"@booling/system.css": "workspace:^"
+		"vue-router": "^4.1.6"
 	},
 	"devDependencies": {
 		"@vitejs/plugin-vue": "^3.2.0",
@@ -29,6 +28,6 @@
 	},
 	"volta": {
 		"node": "20.9.0",
-		"pnpm": "8.10.2"
+		"pnpm": "8.10.5"
 	}
 }
