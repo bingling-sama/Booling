@@ -6,7 +6,7 @@
 	"scripts": {
 		"install": "powershell ./scripts/install.ps1",
 		"dev": "vite --open",
-		"build": "vue-tsc && vite build",
+		"build": "powershell ./scripts/build.ps1",
 		"preview": "vite preview"
 	},
 	"workspaces": [
