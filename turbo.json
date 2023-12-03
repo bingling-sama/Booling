@@ -1,0 +1,24 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"extends": ["//"],
+	"pipeline": {
+		"update":{
+			"dependsOn": []
+		},
+		"build": {
+			"dependsOn": ["update", "^build"],
+			"inputs": ["src/**", "public/**"],
+			"outputs": ["dist/**"]
+		},
+		"dev": {
+			"dependsOn": ["update", "@booling/system.css#build"],
+			"inputs": ["src/**", "public/**"],
+			"cache": false,
+			"persistent": true
+		},
+		"preview": {
+			"dependsOn": ["update", "^build"],
+			"inputs": ["dist/**"]
+		}
+	}
+}

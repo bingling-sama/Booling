@@ -25,3 +25,8 @@ dist-ssr
 .history
 
 .vercel
+.turbo
+
+build/**
+dist/**
+.next/**
