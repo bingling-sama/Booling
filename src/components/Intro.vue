@@ -1,11 +1,11 @@
 <template>
-	<div class="modeless-dialog content">
-		<div class="profile">
+	<div class="modeless-dialog profile">
+		<div class="hero">
 			<div class="avatar">
-				<img style="height: 80%;" alt="avatar" src="../assets/avatar.webp" />
+				<img style="width: 80%" alt="avatar" src="../assets/avatar.webp" />
 			</div>
-			<div class="info">
-				<span style="font-weight: bold;">bingling_sama</span>
+			<div class="link">
+				<span style="font-weight: bold">bingling_sama</span>
 				<br />
 				<span class="text">A high school student from China. Living in Wuhan, Hubei Province.
 				</span>
@@ -14,55 +14,69 @@
 				</span>
 			</div>
 		</div>
-		<div class="intro">
-			<span>Self Introduction</span><br />
-			<span class="text">Hi there, this is bingling_sama, an interest-driven
-				programmer.</span>
+		<div class="brief">
+			<span>Self Introduction</span>
+			<span class="text">Hi there, this is bingling_sama, an interest-driven programmer.</span>
 			<ul class="text">
 				<li>Web Engineer, using Vue.</li>
 				<li>Java & Kotlin user, JVM the best!</li>
 				<li>The sideline is Python.</li>
-				<li>Also learning Rust...</li>
 				<li>Work for LittleSkin Commspt.</li>
-				<li>A big fan of Minecraft.</li>
+				<li>A die-hard fan of Minecraft.</li>
 			</ul>
 		</div>
 	</div>
 </template>
 
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 
 <style scoped>
-.content {
-	padding: 0.5rem 0.5rem 0.5rem 0.5rem !important;
+.profile {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1.5fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		'hero hero'
+		'brief brief';
+	padding: 0 0.5rem 0 0;
 }
 
-.profile {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.hero {
+	display: grid;
+	grid-template-columns: 1fr 1.5fr;
+	grid-template-rows: 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas: 'avatar link';
+	grid-area: hero;
 }
 
 .avatar {
+	grid-area: avatar;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 8rem;
-	width: 8rem;
+	height: auto;
 }
 
-.info {
-	width: 20rem;
-	padding: .5rem 0 .5rem .5rem;
+.link {
+	grid-area: link;
+	padding: 0.5rem 0 0.5rem 0.5rem;
 }
 
-.intro {
-	width: 26rem;
-	padding: .5rem 0 0 1rem;
+.brief {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1.5fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-area: brief;
+	padding: 0.5rem 0 0 1rem;
 }
 
-.intro ul {
+.brief ul {
 	padding-left: 2rem;
 }
 

@@ -20,7 +20,7 @@
 <style scoped>
 .about {
 	text-align: center;
-	line-height: 1.8rem;
-	padding: 0.5rem 0.5rem 0.5rem !important;
+	line-height: 5vh;
+	padding: 1vh 1vw 1vh 1vw;
 }
 </style>
