@@ -7,7 +7,7 @@
 			<div class="link">
 				<span style="font-weight: bold">bingling_sama</span>
 				<br />
-				<span class="text">A high school student from China. Living in Wuhan, Hubei Province.
+				<span class="text">An undergraduate of CCNU. Living in Wuhan, Hubei Province.
 				</span>
 				<span class="text">Email:
 					<a href="mailto:bingling_sama@qq.com">bingling_sama@qq.com</a>
