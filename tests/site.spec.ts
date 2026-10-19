@@ -1,5 +1,48 @@
 import { expect, test } from '@playwright/test'
 
+test('pages render bundled fonts before platform fonts', async ({ page }) => {
+  const cdp = await page.context().newCDPSession(page)
+  await cdp.send('DOM.enable')
+  await cdp.send('CSS.enable')
+
+  for (const route of ['/', '/about']) {
+    await page.goto(route)
+    await page.evaluate(() => document.fonts.ready)
+    const { root } = await cdp.send('DOM.getDocument')
+
+    for (const [selector, family, renderedFamily] of [
+      ['.title', 'Chicago_12', 'ChiKareGo2'],
+      ['.details a', 'Chicago', 'ChicagoFLF'],
+      [route === '/' ? '.text' : 'span.dialog-text', 'Chicago', 'ChicagoFLF'],
+    ]) {
+      // Linux may lack Menlo, masking an incorrect font order on macOS.
+      const firstFamily = await page
+        .locator(selector)
+        .first()
+        .evaluate(
+          (element) => getComputedStyle(element).fontFamily.split(',')[0],
+        )
+      expect(firstFamily).toBe(family)
+
+      const { nodeId } = await cdp.send('DOM.querySelector', {
+        nodeId: root.nodeId,
+        selector,
+      })
+      const { fonts } = await cdp.send('CSS.getPlatformFontsForNode', {
+        nodeId,
+      })
+      expect(fonts).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            familyName: renderedFamily,
+            isCustomFont: true,
+          }),
+        ]),
+      )
+    }
+  }
+})
+
 test('home assets load and navigation survives browser history', async ({
   page,
 }) => {
