@@ -31,6 +31,17 @@ system preference changes. System.css supplies the explicit theme palettes and
 component styling; automatic selection belongs to this application. No theme
 preference is stored.
 
+The application window fills the available width up to 40rem. It has 0.75rem
+outer gutters below 30rem and 1.5rem gutters above that breakpoint, with safe-area
+insets respected. At 48rem and wider the window is vertically centered when it
+fits; longer pages scroll naturally. The home profile stacks on narrow screens
+and wraps again when enlarged text needs more room. About uses left-aligned text
+on small screens and centered paragraphs on wider screens.
+
+Layout variables live in `src/style.css`; window and navigation rules live in
+`src/App.vue`. These application rules override System.css defaults without
+changing the independent submodule.
+
 ## Checks
 
 ```sh
@@ -38,7 +49,14 @@ pnpm exec playwright install --no-shell chromium
 pnpm check
 ```
 
-Individual checks: `pnpm lint`, `pnpm format:check`, `pnpm typecheck`, `pnpm build`, and `pnpm test`. Run `pnpm format` to format the main repository. Browser tests use the production build and cover navigation, reloads, assets and mobile overflow; build before running `pnpm test` alone.
+Individual checks: `pnpm lint`, `pnpm format:check`, `pnpm typecheck`, `pnpm build`, and `pnpm test`. Run `pnpm format` to format the main repository. Browser tests use the production build; build before running `pnpm test` alone.
+
+Browser coverage includes navigation, reloads, assets, bundled fonts and system
+themes. Responsive checks cover both routes in light/dark themes at widths from
+280px to 2560px, breakpoint boundaries, short landscape viewports, 200% root text
+size, content overflow and reachability, navigation target size, keyboard focus,
+selection and hover. Run `pnpm exec playwright test tests/responsive.spec.ts` to
+check the responsive matrix alone.
 
 CI checks out submodules recursively and runs formatting, lint, production build, Chromium desktop/mobile tests and a dependency audit. Dependency updates are proposed weekly by Dependabot.
 
