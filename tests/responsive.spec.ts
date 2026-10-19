@@ -77,14 +77,14 @@ for (const colorScheme of ['light', 'dark'] as const) {
           expect(windowBox.width).toBeCloseTo(
             Math.min(
               viewport.width - gutter * 2,
-              viewport.width >= 768 ? 400 : 640,
+              viewport.width >= 768 ? 576 : 640,
             ),
             0,
           )
 
           if (viewport.width >= 768) {
             expect(windowBox.height).toBeGreaterThanOrEqual(
-              (windowBox.width * 4) / 3 - 1,
+              (windowBox.width * 3) / 4 - 1,
             )
           }
 

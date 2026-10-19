@@ -26,6 +26,6 @@ body {
 
 @media (min-width: 48rem) {
   :root {
-    --window-max-width: 25rem;
+    --window-max-width: 36rem;
   }
 }

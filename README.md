@@ -32,7 +32,7 @@ component styling; automatic selection belongs to this application. No theme
 preference is stored.
 
 The application window fills the available width up to 40rem. On desktop
-(48rem and wider), it is capped at 25rem with a preferred 3:4 width-to-height
+(48rem and wider), it is capped at 36rem with a preferred 4:3 width-to-height
 ratio; content can make it taller. It has 0.75rem
 outer gutters below 30rem and 1.5rem gutters above that breakpoint, with safe-area
 insets respected. At 48rem and wider the window is vertically centered when it
