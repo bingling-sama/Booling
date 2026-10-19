@@ -36,11 +36,11 @@
   display: grid;
   gap: var(--layout-gap);
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.45;
 }
 
 .hero {
-  --avatar-size: 6rem;
+  --avatar-size: 5rem;
 
   display: flex;
   flex-wrap: wrap;
@@ -91,7 +91,7 @@
 }
 
 .brief ul {
-  padding-inline-start: var(--layout-gap);
+  padding-inline-start: 1.25rem;
 }
 
 .brief li + li {
@@ -104,7 +104,7 @@
 
 @media (min-width: 30rem) {
   .hero {
-    --avatar-size: clamp(8rem, 22vw, 10rem);
+    --avatar-size: clamp(7rem, 18vw, 8rem);
   }
 
   .link {

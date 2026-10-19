@@ -23,7 +23,7 @@
   display: grid;
   gap: var(--layout-gap);
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.45;
   text-align: start;
 }
 

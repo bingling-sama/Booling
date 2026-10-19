@@ -1,9 +1,9 @@
 :root {
   --page-gutter: 0.75rem;
   --window-max-width: 40rem;
-  --content-padding: clamp(1rem, 3vw, 2rem);
-  --layout-gap: clamp(1rem, 3vw, 1.5rem);
-  --space-small: 0.5rem;
+  --content-padding: clamp(0.75rem, 2vw, 1rem);
+  --layout-gap: clamp(0.5rem, 2vw, 0.75rem);
+  --space-small: 0.25rem;
   --touch-target: 2.75rem;
 }
 
