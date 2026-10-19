@@ -39,11 +39,12 @@
   width: 100%;
   max-width: var(--window-max-width);
   min-width: 0;
-  margin: 0;
+  margin: auto 0;
   overflow: visible;
 }
 
 .details {
+  flex-wrap: wrap;
   gap: var(--space-small);
   padding: 0 var(--space-small);
 }
@@ -63,7 +64,7 @@
   flex: 0 1 auto;
   align-items: center;
   justify-content: center;
-  min-width: 0;
+  min-width: min-content;
   min-height: var(--touch-target);
   padding: var(--space-small);
   overflow-wrap: anywhere;
@@ -116,7 +117,6 @@
 @media (min-width: 48rem) {
   .window {
     min-height: calc(var(--window-max-width) * 3 / 4);
-    margin-block: auto;
   }
 }
 </style>

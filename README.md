@@ -33,10 +33,10 @@ preference is stored.
 
 The application window fills the available width up to 40rem. On desktop
 (48rem and wider), it is capped at 36rem with a preferred 4:3 width-to-height
-ratio; content can make it taller. It has 0.75rem
-outer gutters below 30rem and 1.5rem gutters above that breakpoint, with safe-area
-insets respected. At 48rem and wider the window is vertically centered when it
-fits; longer pages scroll naturally. The home profile stacks on narrow screens
+ratio; content can make it taller. It has 1.25rem
+outer gutters below 30rem and 2rem gutters above that breakpoint, with safe-area
+insets respected. The window is vertically centered at every viewport size when
+it fits; longer pages scroll naturally from the top gutter. The home profile stacks on narrow screens
 and wraps again when enlarged text needs more room. About uses left-aligned text
 on small screens and centered paragraphs on wider screens.
 

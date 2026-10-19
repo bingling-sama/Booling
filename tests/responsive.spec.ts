@@ -73,12 +73,22 @@ for (const colorScheme of ['light', 'dark'] as const) {
           await expectContentToFit(page, route)
 
           const windowBox = (await page.locator('.window').boundingBox())!
-          const gutter = viewport.width < 480 ? 12 : 24
+          const gutter = viewport.width < 480 ? 20 : 32
           expect(windowBox.width).toBeCloseTo(
             Math.min(
               viewport.width - gutter * 2,
               viewport.width >= 768 ? 576 : 640,
             ),
+            0,
+          )
+
+          expect(windowBox.x).toBeGreaterThanOrEqual(gutter)
+          expect(
+            viewport.width - windowBox.x - windowBox.width,
+          ).toBeGreaterThanOrEqual(gutter)
+          const documentTop = windowBox.y + (await page.evaluate(() => scrollY))
+          expect(documentTop).toBeCloseTo(
+            Math.max(gutter, (viewport.height - windowBox.height) / 2),
             0,
           )
 

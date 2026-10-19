@@ -1,5 +1,5 @@
 :root {
-  --page-gutter: 0.75rem;
+  --page-gutter: 1.25rem;
   --window-max-width: 40rem;
   --content-padding: clamp(0.75rem, 2vw, 1rem);
   --layout-gap: clamp(0.5rem, 2vw, 0.75rem);
@@ -20,7 +20,7 @@ body {
 
 @media (min-width: 30rem) {
   :root {
-    --page-gutter: 1.5rem;
+    --page-gutter: 2rem;
   }
 }
 
