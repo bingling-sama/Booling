@@ -1,6 +1,6 @@
 :root {
-  --page-gutter: 1.25rem;
-  --window-max-width: 40rem;
+  --page-gutter: 2rem;
+  --window-max-width: 36rem;
   --content-padding: clamp(0.75rem, 2vw, 1rem);
   --layout-gap: clamp(0.5rem, 2vw, 0.75rem);
   --space-small: 0.25rem;
@@ -16,16 +16,4 @@
 html,
 body {
   margin: 0;
-}
-
-@media (min-width: 30rem) {
-  :root {
-    --page-gutter: 2rem;
-  }
-}
-
-@media (min-width: 48rem) {
-  :root {
-    --window-max-width: 36rem;
-  }
 }

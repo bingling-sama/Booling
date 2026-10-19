@@ -31,11 +31,12 @@ system preference changes. System.css supplies the explicit theme palettes and
 component styling; automatic selection belongs to this application. No theme
 preference is stored.
 
-The application window fills the available width up to 40rem. On desktop
-(48rem and wider), it is capped at 36rem with a preferred 4:3 width-to-height
-ratio; content can make it taller. It has 1.25rem
-outer gutters below 30rem and 2rem gutters above that breakpoint, with safe-area
-insets respected. The window is vertically centered at every viewport size when
+The application window fills the available width up to 36rem, with a minimum
+2rem gutter on each side at every viewport size. As the viewport narrows, the
+outer space shrinks to 2rem before the window itself starts shrinking; neither
+the width cap nor the gutters change at breakpoints. Safe-area insets are respected.
+On desktop (48rem and wider), it has a preferred 4:3 width-to-height ratio;
+content can make it taller. The window is vertically centered at every viewport size when
 it fits; longer pages scroll naturally from the top gutter. The home profile stacks on narrow screens
 and wraps again when enlarged text needs more room. About uses left-aligned text
 on small screens and centered paragraphs on wider screens.

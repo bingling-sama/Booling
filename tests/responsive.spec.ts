@@ -7,6 +7,9 @@ const viewports = [
   { width: 414, height: 896 },
   { width: 479, height: 800 },
   { width: 480, height: 800 },
+  { width: 639, height: 900 },
+  { width: 640, height: 900 },
+  { width: 641, height: 900 },
   { width: 767, height: 1024 },
   { width: 768, height: 1024 },
   { width: 1024, height: 768 },
@@ -73,12 +76,9 @@ for (const colorScheme of ['light', 'dark'] as const) {
           await expectContentToFit(page, route)
 
           const windowBox = (await page.locator('.window').boundingBox())!
-          const gutter = viewport.width < 480 ? 20 : 32
+          const gutter = 32
           expect(windowBox.width).toBeCloseTo(
-            Math.min(
-              viewport.width - gutter * 2,
-              viewport.width >= 768 ? 576 : 640,
-            ),
+            Math.min(viewport.width - gutter * 2, 576),
             0,
           )
 
