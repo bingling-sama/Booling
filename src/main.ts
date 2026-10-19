@@ -9,12 +9,12 @@ import About from './components/About.vue'
 
 const routes = [
   { path: '/', component: Intro },
-  { path: '/about', component: About }
+  { path: '/about', component: About },
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })
 
 createApp(App).use(router).mount('#app')

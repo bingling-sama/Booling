@@ -30,3 +30,6 @@ dist-ssr
 build/**
 dist/**
 .next/**
+playwright-report/
+test-results/
+*.tsbuildinfo
