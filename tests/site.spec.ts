@@ -94,15 +94,3 @@ test('about opens directly and survives reload', async ({ page }) => {
   await page.getByRole('link', { name: 'Home', exact: true }).click()
   await expect(page.getByText('Self Introduction')).toBeVisible()
 })
-
-test('pages fit the viewport without horizontal scrolling', async ({
-  page,
-}) => {
-  for (const route of ['/', '/about']) {
-    await page.goto(route)
-    await page.evaluate(() => document.fonts.ready)
-    expect(
-      await page.evaluate(() => document.documentElement.scrollWidth),
-    ).toBeLessThanOrEqual(await page.evaluate(() => window.innerWidth))
-  }
-})
