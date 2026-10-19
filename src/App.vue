@@ -5,73 +5,87 @@
         <h1 class="title">Booling✨</h1>
       </div>
 
-      <div class="details-bar details">
+      <nav class="details-bar details" aria-label="Primary navigation">
         <router-link to="/">Home</router-link>
         <a href="https://blog.booling.cn/">Blog</a>
         <router-link to="/about">About</router-link>
-      </div>
+      </nav>
 
-      <div class="content">
+      <main class="content">
         <router-view></router-view>
-      </div>
+      </main>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup></script>
-
 <style>
 .container {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 1fr minmax(0, 1fr);
-  grid-template-rows: 1fr 30rem 1fr;
-  gap: 0 0;
-  grid-template-areas:
-    '. . .'
-    '. main .'
-    '. . .';
-  margin: 0 0 0 0;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-block: max(var(--page-gutter), env(safe-area-inset-top))
+    max(var(--page-gutter), env(safe-area-inset-bottom));
+  padding-inline: max(var(--page-gutter), env(safe-area-inset-left))
+    max(var(--page-gutter), env(safe-area-inset-right));
 }
 
 .window {
   /* Prefer the bundled retro font over macOS's installed Menlo. */
   font-family: Chicago, Geneva, sans-serif;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 2rem 2rem 1fr;
-  gap: 0 0;
-  grid-area: main;
-  grid-template-areas:
-    'title title title'
-    'nav nav nav'
-    'content content content'
-    'content content content';
-}
-
-.header {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 0 0;
-  grid-area: header;
-}
-
-.title-bar {
-  grid-area: title;
+  display: flex;
+  flex: none;
+  width: 100%;
+  max-width: var(--window-max-width);
+  min-width: 0;
+  margin: 0;
+  overflow: visible;
 }
 
 .details {
-  grid-area: nav;
+  gap: var(--space-small);
+  padding: 0 var(--space-small);
+}
+
+.details a {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: var(--touch-target);
+  padding: var(--space-small);
+}
+
+.details a:hover,
+.details a:active {
+  color: var(--primary);
+  background-color: var(--secondary);
+}
+
+.details a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -4px;
+}
+
+.details .router-link-exact-active {
+  text-decoration-thickness: 0.125em;
 }
 
 .content {
-  grid-area: content;
+  min-width: 0;
+  padding: var(--content-padding);
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
+.content > .modeless-dialog {
+  height: auto;
+  padding: 0;
+}
+
+@media (min-width: 48rem) {
+  .window {
+    margin-block: auto;
+  }
 }
 </style>
