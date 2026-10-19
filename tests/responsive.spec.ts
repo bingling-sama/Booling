@@ -75,9 +75,18 @@ for (const colorScheme of ['light', 'dark'] as const) {
           const windowBox = (await page.locator('.window').boundingBox())!
           const gutter = viewport.width < 480 ? 12 : 24
           expect(windowBox.width).toBeCloseTo(
-            Math.min(viewport.width - gutter * 2, 640),
+            Math.min(
+              viewport.width - gutter * 2,
+              viewport.width >= 768 ? 400 : 640,
+            ),
             0,
           )
+
+          if (viewport.width >= 768) {
+            expect(windowBox.height).toBeGreaterThanOrEqual(
+              (windowBox.width * 4) / 3 - 1,
+            )
+          }
 
           for (const link of await page.locator('.details a').all()) {
             expect((await link.boundingBox())!.height).toBeGreaterThanOrEqual(

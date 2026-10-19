@@ -23,3 +23,9 @@ body {
     --page-gutter: 1.5rem;
   }
 }
+
+@media (min-width: 48rem) {
+  :root {
+    --window-max-width: 25rem;
+  }
+}

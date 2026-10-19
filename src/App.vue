@@ -115,6 +115,7 @@
 
 @media (min-width: 48rem) {
   .window {
+    min-height: calc(var(--window-max-width) * 4 / 3);
     margin-block: auto;
   }
 }
