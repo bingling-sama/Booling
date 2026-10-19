@@ -35,6 +35,8 @@
 }
 
 .window {
+  /* Prefer the bundled retro font over macOS's installed Menlo. */
+  font-family: Chicago, Geneva, sans-serif;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 2rem 2rem 1fr;
