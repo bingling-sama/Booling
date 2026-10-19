@@ -128,8 +128,8 @@ for (const colorScheme of ['light', 'dark'] as const) {
         await page.keyboard.press('Tab')
         const link = navigation.getByRole('link', { name, exact: true })
         await expect(link).toBeFocused()
-        await expect(link).toHaveCSS('outline-style', 'solid')
-        await expect(link).toHaveCSS('outline-width', '2px')
+        await expect(link.locator('span')).toHaveCSS('outline-style', 'solid')
+        await expect(link.locator('span')).toHaveCSS('outline-width', '2px')
       }
 
       await page.keyboard.press('Enter')
@@ -149,11 +149,11 @@ for (const colorScheme of ['light', 'dark'] as const) {
       await expect(page).toHaveURL('/')
       await expect(home).toHaveAttribute('aria-current', 'page')
       await home.hover()
-      await expect(home).toHaveCSS(
+      await expect(home.locator('span')).toHaveCSS(
         'background-color',
         colorScheme === 'dark' ? 'rgb(230, 230, 230)' : 'rgb(0, 0, 0)',
       )
-      await expect(home).toHaveCSS(
+      await expect(home.locator('span')).toHaveCSS(
         'color',
         colorScheme === 'dark' ? 'rgb(28, 28, 28)' : 'rgb(255, 255, 255)',
       )

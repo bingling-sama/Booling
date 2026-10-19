@@ -6,9 +6,9 @@
       </div>
 
       <nav class="details-bar details" aria-label="Primary navigation">
-        <router-link to="/">Home</router-link>
-        <a href="https://blog.booling.cn/">Blog</a>
-        <router-link to="/about">About</router-link>
+        <router-link to="/"><span>Home</span></router-link>
+        <a href="https://blog.booling.cn/"><span>Blog</span></a>
+        <router-link to="/about"><span>About</span></router-link>
       </nav>
 
       <main class="content">
@@ -69,15 +69,24 @@
   overflow-wrap: anywhere;
 }
 
-.details a:hover,
-.details a:active {
+.details a span {
+  min-width: 0;
+  padding: 0.125em 0.375em;
+}
+
+.details a:hover span,
+.details a:active span {
   color: var(--primary);
   background-color: var(--secondary);
 }
 
 .details a:focus-visible {
+  outline: none;
+}
+
+.details a:focus-visible span {
   outline: 2px solid currentColor;
-  outline-offset: -4px;
+  outline-offset: 2px;
 }
 
 .details .router-link-exact-active {
