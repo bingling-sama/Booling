@@ -48,6 +48,16 @@
   padding: 0 var(--space-small);
 }
 
+.title-bar {
+  height: auto;
+  min-height: 2rem;
+}
+
+.title-bar .title {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .details a {
   display: flex;
   flex: 1;
@@ -56,6 +66,7 @@
   min-width: 0;
   min-height: var(--touch-target);
   padding: var(--space-small);
+  overflow-wrap: anywhere;
 }
 
 .details a:hover,
@@ -76,6 +87,16 @@
 .content {
   min-width: 0;
   padding: var(--content-padding);
+  overflow-wrap: anywhere;
+}
+
+.content a:hover {
+  text-decoration-thickness: 0.125em;
+}
+
+.content a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .content > .modeless-dialog {

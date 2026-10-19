@@ -2,25 +2,24 @@
   <div class="modeless-dialog profile">
     <div class="hero">
       <div class="avatar">
-        <img style="width: 80%" alt="avatar" src="../assets/avatar.webp" />
+        <img alt="avatar" src="../assets/avatar.webp" />
       </div>
       <div class="link">
-        <span style="font-weight: bold">bingling_sama</span>
-        <br />
-        <span class="text"
-          >An undergraduate of CCNU. Living in Wuhan, Hubei Province.
-        </span>
-        <span class="text"
-          >Email:
+        <strong class="name">bingling_sama</strong>
+        <p class="text">
+          An undergraduate of CCNU. Living in Wuhan, Hubei Province.
+        </p>
+        <p class="text">
+          Email:
           <a href="mailto:bingling_sama@qq.com">bingling_sama@qq.com</a>
-        </span>
+        </p>
       </div>
     </div>
     <div class="brief">
-      <span>Self Introduction</span>
-      <span class="text"
-        >Hi there, this is bingling_sama, an interest-driven programmer.</span
-      >
+      <h2>Self Introduction</h2>
+      <p class="text">
+        Hi there, this is bingling_sama, an interest-driven programmer.
+      </p>
       <ul class="text">
         <li>Web Engineer, using Vue.</li>
         <li>Java & Kotlin user, JVM the best!</li>
@@ -32,59 +31,84 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
-
 <style scoped>
 .profile {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1.5fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    'hero hero'
-    'brief brief';
-  padding: 0 0.5rem 0 0;
+  gap: var(--layout-gap);
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas: 'avatar link';
-  grid-area: hero;
+  --avatar-size: 6rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--layout-gap);
 }
 
 .avatar {
-  grid-area: avatar;
   display: flex;
-  align-items: center;
+  flex: 0 1 var(--avatar-size);
   justify-content: center;
+}
+
+.avatar img {
+  display: block;
+  width: var(--avatar-size);
+  max-width: 100%;
   height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
 }
 
 .link {
-  grid-area: link;
-  padding: 0.5rem 0 0.5rem 0.5rem;
+  display: grid;
+  flex: 1 1 100%;
+  min-width: 0;
+  gap: var(--space-small);
+}
+
+.name {
+  font-size: 1.25rem;
 }
 
 .brief {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1.5fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-area: brief;
-  padding: 0.5rem 0 0 1rem;
+  gap: var(--space-small);
+}
+
+.profile p,
+.brief h2,
+.brief ul {
+  margin: 0;
+}
+
+.brief h2 {
+  font-size: 1.125rem;
 }
 
 .brief ul {
-  padding-left: 2rem;
+  padding-inline-start: var(--layout-gap);
+}
+
+.brief li + li {
+  margin-block-start: var(--space-small);
 }
 
 .text {
-  font-size: medium;
+  font-size: inherit;
+}
+
+@media (min-width: 30rem) {
+  .hero {
+    --avatar-size: clamp(8rem, 22vw, 10rem);
+  }
+
+  .link {
+    flex-basis: 14rem;
+  }
 }
 </style>
