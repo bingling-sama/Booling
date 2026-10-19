@@ -23,6 +23,14 @@ For an existing checkout, run `git submodule update --init --recursive` before i
 
 `pnpm dev` and `pnpm build` build the System.css workspace first. Production output is written to `dist/`. Use `pnpm preview` to inspect a completed build.
 
+## Appearance
+
+Booling follows the system light/dark preference. A small script in `index.html`
+sets the document's `data-theme` before the application loads and listens for
+system preference changes. System.css supplies the explicit theme palettes and
+component styling; automatic selection belongs to this application. No theme
+preference is stored.
+
 ## Checks
 
 ```sh
