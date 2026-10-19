@@ -5,73 +5,118 @@
         <h1 class="title">Booling✨</h1>
       </div>
 
-      <div class="details-bar details">
-        <router-link to="/">Home</router-link>
-        <a href="https://blog.booling.cn/">Blog</a>
-        <router-link to="/about">About</router-link>
-      </div>
+      <nav class="details-bar details" aria-label="Primary navigation">
+        <router-link to="/"><span>Home</span></router-link>
+        <a href="https://blog.booling.cn/"><span>Blog</span></a>
+        <router-link to="/about"><span>About</span></router-link>
+      </nav>
 
-      <div class="content">
+      <main class="content">
         <router-view></router-view>
-      </div>
+      </main>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup></script>
-
 <style>
 .container {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 1fr minmax(0, 1fr);
-  grid-template-rows: 1fr 30rem 1fr;
-  gap: 0 0;
-  grid-template-areas:
-    '. . .'
-    '. main .'
-    '. . .';
-  margin: 0 0 0 0;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-block: max(var(--page-gutter), env(safe-area-inset-top))
+    max(var(--page-gutter), env(safe-area-inset-bottom));
+  padding-inline: max(var(--page-gutter), env(safe-area-inset-left))
+    max(var(--page-gutter), env(safe-area-inset-right));
 }
 
 .window {
   /* Prefer the bundled retro font over macOS's installed Menlo. */
   font-family: Chicago, Geneva, sans-serif;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 2rem 2rem 1fr;
-  gap: 0 0;
-  grid-area: main;
-  grid-template-areas:
-    'title title title'
-    'nav nav nav'
-    'content content content'
-    'content content content';
-}
-
-.header {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 0 0;
-  grid-area: header;
-}
-
-.title-bar {
-  grid-area: title;
+  display: flex;
+  flex: none;
+  width: 100%;
+  max-width: var(--window-max-width);
+  min-width: 0;
+  margin: auto 0;
+  overflow: visible;
 }
 
 .details {
-  grid-area: nav;
+  flex-wrap: wrap;
+  gap: var(--space-small);
+  padding: 0 var(--space-small);
+}
+
+.title-bar {
+  height: auto;
+  min-height: 2rem;
+}
+
+.title-bar .title {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.details a {
+  display: flex;
+  flex: 0 1 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: min-content;
+  min-height: var(--touch-target);
+  padding: var(--space-small);
+  overflow-wrap: anywhere;
+}
+
+.details a span {
+  min-width: 0;
+  padding: 0.125em 0.375em;
+}
+
+.details a:hover span,
+.details a:active span {
+  color: var(--primary);
+  background-color: var(--secondary);
+}
+
+.details a:focus-visible {
+  outline: none;
+}
+
+.details a:focus-visible span {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.details .router-link-exact-active {
+  text-decoration-thickness: 0.125em;
 }
 
 .content {
-  grid-area: content;
+  min-width: 0;
+  padding: var(--content-padding);
+  overflow-wrap: anywhere;
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
+.content a:hover {
+  text-decoration-thickness: 0.125em;
+}
+
+.content a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.content > .modeless-dialog {
+  height: auto;
+  padding: 0;
+}
+
+@media (min-width: 48rem) {
+  .window {
+    min-height: calc(var(--window-max-width) * 3 / 4);
+  }
 }
 </style>

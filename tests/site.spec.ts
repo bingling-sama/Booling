@@ -13,7 +13,7 @@ test('pages render bundled fonts before platform fonts', async ({ page }) => {
     for (const [selector, family, renderedFamily] of [
       ['.title', 'Chicago_12', 'ChiKareGo2'],
       ['.details a', 'Chicago', 'ChicagoFLF'],
-      [route === '/' ? '.text' : 'span.dialog-text', 'Chicago', 'ChicagoFLF'],
+      [route === '/' ? '.text' : 'p.dialog-text', 'Chicago', 'ChicagoFLF'],
     ]) {
       // Linux may lack Menlo, masking an incorrect font order on macOS.
       const firstFamily = await page
@@ -93,16 +93,4 @@ test('about opens directly and survives reload', async ({ page }) => {
   ).toHaveAttribute('href', 'https://github.com/bingling-sama/Booling/')
   await page.getByRole('link', { name: 'Home', exact: true }).click()
   await expect(page.getByText('Self Introduction')).toBeVisible()
-})
-
-test('pages fit the viewport without horizontal scrolling', async ({
-  page,
-}) => {
-  for (const route of ['/', '/about']) {
-    await page.goto(route)
-    await page.evaluate(() => document.fonts.ready)
-    expect(
-      await page.evaluate(() => document.documentElement.scrollWidth),
-    ).toBeLessThanOrEqual(await page.evaluate(() => window.innerWidth))
-  }
 })

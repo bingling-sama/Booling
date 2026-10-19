@@ -1,0 +1,19 @@
+:root {
+  --page-gutter: 2rem;
+  --window-max-width: 36rem;
+  --content-padding: clamp(0.75rem, 2vw, 1rem);
+  --layout-gap: clamp(0.5rem, 2vw, 0.75rem);
+  --space-small: 0.25rem;
+  --touch-target: 2.75rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
