@@ -60,7 +60,7 @@
 
 .details a {
   display: flex;
-  flex: 1;
+  flex: 0 1 auto;
   align-items: center;
   justify-content: center;
   min-width: 0;
