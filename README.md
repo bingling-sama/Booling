@@ -54,3 +54,5 @@ Vercel handles HTTP compression. The old compression and image conversion build 
 ## Maintenance
 
 Use `pnpm outdated -r` and `pnpm audit` to inspect dependencies. TypeScript stays on the latest 6.0 patch until the ESLint TypeScript tooling supports TypeScript 7. Review compatibility before changing major versions, update both workspace manifests as needed, then regenerate the shared lockfile and run `pnpm check`.
+
+Dependency resolution and frozen installs enforce a 24-hour release cooldown (`minimumReleaseAge: 1440`, strict mode). Select versions that have passed this cooldown when updating the lockfile; do not bypass it in CI.
